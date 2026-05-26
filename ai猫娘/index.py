@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from openai import OpenAI
-
+from datetime import    datetime
 import pandas as pd
 import numpy as np
 st.set_page_config(
@@ -40,6 +40,11 @@ if "nick_name" not in st.session_state:
     st.session_state.nick_name = "猫娘"
 if "nature" not in st.session_state:
     st.session_state.nature = "一只乖猫娘"
+    #会话
+if "current_session"  not in st.session_state:
+    st.session_state.current_session = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+
 
     #展示聊天记录
 for message in st.session_state.messages:
